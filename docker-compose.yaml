@@ -1,0 +1,25 @@
+version: '3'
+services:
+  p4_image:
+    # image: debian_utf8:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: p4_client
+      # labels: debian_utf8:1.0.0
+      # command: tail -f /dev/null
+      # entrypoint: ["tail", "-f", "/dev/null"]
+      # restart: unless-stopped
+      # ports:
+      # - "38080:8080"
+      # volumes:
+      # - /Users/matt/backup/shared/universal:/mnt/universal
+      # privileged:  true
+    environment:
+      - LOG_LEVEL=INFO
+      - P4PORT=<server>:<port>
+      - P4USER=<username>
+      - P4PASSWD=<password>
+      - P4CLIENT=<clientname on client>
+    tty: true
+
